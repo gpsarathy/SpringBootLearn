@@ -5,18 +5,24 @@ import javax.websocket.server.PathParam;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClient.ResponseSpec;
+
+import reactor.core.publisher.Mono;
 
 @RestController
 public class TestEndPoint {
 
+	WebClient webClient =WebClient.builder().baseUrl("http://localhost:8080").build();
+	
 	Logger logger = LogManager.getLogger(TestEndPoint.class);
 	
-	@RequestMapping("getInfo/{val}")
+	@RequestMapping(value="getInfo/{val}",method = RequestMethod.GET)
 	public String getInfo(@PathVariable int val)
 	{
 		
@@ -32,4 +38,20 @@ public class TestEndPoint {
 		}
 		return "good";
 	}
+	
+	@RequestMapping(value = "addData", method = RequestMethod.POST)
+	public String putSome() {
+		
+		return "added successfully";
+	}
+	
+	@RequestMapping(value = "getTest")
+	public Mono<String> getSome() {
+		
+		
+		
+		return  webClient.post().uri("addData").retrieve().bodyToMono(String.class);
+		
+	}
+
 }
