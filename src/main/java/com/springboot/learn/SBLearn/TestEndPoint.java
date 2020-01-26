@@ -40,17 +40,17 @@ public class TestEndPoint {
 	}
 	
 	@RequestMapping(value = "addData", method = RequestMethod.POST)
-	public String putSome() {
+	public Card putSome() {
 		
-		return "added successfully";
-	}
+		return new Card("Derry", 438087,   new String[]{ "123444", "53330"} );
+	} 
 	
 	@RequestMapping(value = "getTest")
-	public Mono<String> getSome() {
+	public Mono<Card> getSome() {
 		
 		
 		
-		return  webClient.post().uri("addData").retrieve().bodyToMono(String.class);
+		return  webClient.post().uri("addData").retrieve().bodyToMono(Card.class);
 		
 	}
 
