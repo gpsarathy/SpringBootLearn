@@ -1,23 +1,29 @@
 package com.springboot.learn.SBLearn;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Card {
 
-	public Card() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	Long id;
+	@Column(name = "HOLDER_NAME")
 	String name;
+	@Column(name= "CONTACT_NO")
 	int contactNo;
 	
 	String[] dbCardNo;
 	
+	public Card() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
-	public String[] getDbCardNo() {
-		return dbCardNo;
-	}
-	public void setDbCardNo(String[] dbCardNo) {
-		this.dbCardNo = dbCardNo;
-	}
 	
 	public Card(String name, int contactNo, String[] dbCardNo) {
 		super();
@@ -25,21 +31,28 @@ public class Card {
 		this.contactNo = contactNo;
 		this.dbCardNo = dbCardNo;
 	}
-	@Override
-	public String toString() {
-		return "Card [name=" + name + ", contactNo=" + contactNo + "]";
+	public int getContactNo() {
+		return contactNo;
+	}
+	
+	public String[] getDbCardNo() {
+		return dbCardNo;
 	}
 	public String getName() {
 		return name;
 	}
+	public void setContactNo(int contactNo) {
+		this.contactNo = contactNo;
+	}
+	public void setDbCardNo(String[] dbCardNo) {
+		this.dbCardNo = dbCardNo;
+	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getContactNo() {
-		return contactNo;
-	}
-	public void setContactNo(int contactNo) {
-		this.contactNo = contactNo;
+	@Override
+	public String toString() {
+		return "Card [name=" + name + ", contactNo=" + contactNo + "]";
 	}
 	
 }
