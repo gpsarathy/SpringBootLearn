@@ -10,9 +10,12 @@
       </encoder>
       <File>../logs/app.log</File>
    </appender>
-   <root level = "DEBUG">
+   <root level = "ERROR">
       <appender-ref ref = "STDOUT"/>
       <!-- <appender-ref ref = "FILE"/> -->
    </root>
-   
+      <root level = "DEBUG">
+      <appender-ref ref = "STDOUT"/>
+      <!-- <appender-ref ref = "FILE"/> -->
+   </root>
 </configuration>
