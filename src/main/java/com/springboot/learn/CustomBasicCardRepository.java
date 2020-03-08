@@ -1,4 +1,4 @@
-package com.springboot.learn.SBLearn;
+package com.springboot.learn;
 
 import java.util.List;
 import java.util.Optional;

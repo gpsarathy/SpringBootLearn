@@ -1,4 +1,4 @@
-package com.springboot.learn.SBLearn;
+package com.springboot.learn;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

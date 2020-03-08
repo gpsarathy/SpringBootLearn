@@ -1,4 +1,4 @@
-package com.springboot.learn.SBLearn;
+package com.springboot.learn;
 import org.apache.logging.log4j.LogManager;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

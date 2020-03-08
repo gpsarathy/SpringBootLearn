@@ -1,4 +1,4 @@
-package com.springboot.learn.SBLearn;
+package com.springboot.learn;
 
 public class CustomExceptions {
 

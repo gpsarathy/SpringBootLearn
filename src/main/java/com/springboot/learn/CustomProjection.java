@@ -1,4 +1,4 @@
-package com.springboot.learn.SBLearn;
+package com.springboot.learn;
 
 import org.springframework.data.rest.core.config.Projection;
 import org.springframework.stereotype.Repository;
